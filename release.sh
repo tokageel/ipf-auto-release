@@ -6,7 +6,7 @@ node jsonDiffToCsv.js | while read row; do
     releaseTag=${arr[2]}
     fileName=${file}.lua
     releaseFileName=${file}-${version}
-    filePath=$(find -name $fileName)
+    filePath=$(find . -name $fileName)
     if [ -z "$filePath" ] ; then
         echo ${fileName}がみつかりません
         continue
