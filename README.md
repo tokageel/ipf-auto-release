@@ -10,54 +10,15 @@ commitをGithubにpushしたときにビルドが走り、問題なければGith
 
 
 ### 許容可能なフォルダ構造
-Tos-Addonというリポジトリで管理していて、AutoReleaseというアドオン作っている場合は  
+`addons.json`の`file`で指定した名前のディレクトリが存在し、 `gradlew build`でビルド可能であることが必須です
 
-1.
+Tos-Addonというリポジトリで管理していて、AutoReleaseというアドオンを作っている場合のディレクトリ構造は下記となります
+
 ```
 Tos-Addon
   └AutoRelease
-     │─README.md
-     └─autorelease (or anything)
-        └─autorelase.lua
-        └─autorelase.xml
+     └─gradlew
 ```
-
-2.
-```
-Tos-Addon
-  └AutoRelease
-     │─README.md
-     └─src
-        └─autorelase
-        │ └─autorelase.lua
-        │ └─autorelase.xml
-        │
-        └─autorelase2
-          └─autorelase2.lua
-          └─autorelase2.xml
-```
-
-3.
-```
-Tos-Addon
-  └AutoRelease
-   |─README.md
-   └─src 
-     └─addon_d.ipf
-     │  └─autorelase
-     │  │ └─autorelase.lua
-     │  │ └─autorelase.xml
-     │  │
-     │  └─autorelase2
-     │    └─autorelase2.lua
-     │    └─autorelase2.xml
-     └─ui.ipf
-      └─skin
-          └─autorelase.tga
-```
-1. 基本となる構造． luaファイルを格納するフォルダ名は何でもよい
-2. 複数のアドオンを含む構造． **src**フォルダにそれぞれのアドオンフォルダをを格納してください．必ずsrcフォルダに格納してください．
-3. addon_d.ipfとui.ipfなど複数のコンテナを含む構造． srcなどのフォルダに格納し、REMADEなどがaddon_d.ipfと同じディレクト上に含まれないように気をつけてください
 
 ### 使い方
 1. [.travis.yml](travis/.travis.yml)を自分のリポジトリに保存してください
