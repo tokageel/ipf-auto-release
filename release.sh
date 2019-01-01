@@ -22,6 +22,5 @@ node jsonDiffToCsv.js | while read row; do
         continue
     fi
     mv "${targetPath}/build/${ipfFileName}" "${releaseFileName}"
-    currentBranch=$(git rev-parse --abbrev-ref HEAD)
-    ghr -recreate -replace -c "${currentBranch}" "${releaseTag}" "${releaseFileName}"
+    ghr -recreate -replace "${releaseTag}" "${releaseFileName}"
 done
