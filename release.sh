@@ -22,5 +22,5 @@ node jsonDiffToCsv.js | while read row; do
         continue
     fi
     mv "${targetPath}/build/${ipfFileName}" "${releaseFileName}"
-    ghr -recreate -replace "${releaseTag}" "${releaseFileName}"
+    ghr -c ${TRAVIS_COMMIT} -recreate -replace "${releaseTag}" "${releaseFileName}"
 done
